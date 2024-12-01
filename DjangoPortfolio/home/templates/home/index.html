@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio - Reboredo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #26619c;
+        }
+
+        header {
+            background: linear-gradient(#1e3a5f, #163b57, #0f2f47);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+            header h1 {
+                font-size: 3rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+
+        nav {
+            background-color: #0f2f47;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                text-align: center;
+            }
+
+                nav ul li {
+                    display: inline;
+                    margin: 0 25px;
+                }
+
+                    nav ul li a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 400;
+                    }
+
+                        nav ul li a:hover {
+                            text-decoration: underline;
+                            color: #e3d74d; /* Gold accent */
+                        }
+
+        section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: #eff5fb;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+            section h2 {
+                text-align: center;
+                font-size: 2.2rem;
+                color: #437ab1;
+                font-weight: 600;
+            }
+
+        .my-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            border: 6px solid #26619c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            display: block;
+            margin: 20px auto;
+        }
+
+        .Intro {
+            text-align: left;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-top: 20px;
+            color: #4b4b4b;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            border: 2px solid #a2c2e1;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .project:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .project h3 {
+                color: #2c3e50;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+            .project p {
+                font-size: 1rem;
+                color: #7f8c8d;
+            }
+
+        .social-media {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .social-media a {
+                color: #333;
+                font-size: 1.5rem;
+                margin: 0 18px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .social-media a:hover {
+                    color: #e3d74d;
+                }
+
+        footer {
+            background: linear-gradient(#1e3a5f, #163b57, #0f2f47);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul li {
+                margin: 0 12px;
+            }
+
+            .my-image {
+                max-width: 200px;
+            }
+        }
+
+        .contact-form {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                max-width: 600px;
+                padding: 12px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                font-size: 1rem;
+                color: #333;
+            }
+
+            .contact-form button {
+                padding: 12px 25px;
+                background-color: #1a2d46;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 1.2rem;
+            }
+
+                .contact-form button:hover {
+                    background-color: #e3d74d; /* Gold accent */
+                }
+
+        .education {
+            margin-top: 50px;
+            text-align: center;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+            .education h2 {
+                font-size: 2.2rem;
+                color: #26619c;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+        .timeline {
+            position: relative;
+            margin: 20px auto;
+            padding: 10px 0;
+            max-width: 700px;
+        }
+
+        .timeline-item {
+            margin: 20px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: 30px;
+                top: 0;
+                height: 100%;
+                width: 3px;
+                background-color: #26619c;
+            }
+
+        .timeline-content {
+            margin-left: 50px;
+            padding: 15px;
+            background: #f4f7fc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+            .timeline-content h3 {
+                font-size: 1.5rem;
+                color: #26619c;
+                margin: 0 0 10px;
+            }
+
+            .timeline-content p {
+                font-size: 1rem;
+                color: #4b4b4b;
+            }
+
+        .pos {
+            max-width: 250px;
+            border: 6px solid #26619c;
+            margin-left: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1> Tristan Reboredo </h1>
+        {% load static %}
+        <img src="{% static 'home/myimage.jpg' %}" alt="My Image" class="my-image">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Activities</a></li>
+            <li><a href="#social-media">Socials</a></li>
+            <li><a href="#education">My Education</a></li>
+            <li><a href="#details">Details</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>Explore and connect with me!</h2>
+        <h1> Hi There! 👋.</h1>
+        <p class="Intro">
+            Im Tristan Reboredo a second-year BSIT student at STI College, Sta. Maria.<br />
+            A hardworking and passionate person, always eager to grow and learn through new challenges and responsibilities.<br />
+            I study hard to improve my skills and knowledge in field of Programming and Technology.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Activities</h2>
+        <div class="project-grid">
+            <div class="project">
+                <h3>HTML/CSS Website</h3>
+                <p>A simple website I built using HTML and CSS.</p>
+                <ul>
+                    <li>A clean and user-friendly layout.</li>
+                    <li>Interactive navigation.</li>
+                    <li>Custom styling for good visuals.</li>
+                </ul>
+
+            </div>
+            <div class="project">
+                <h3>Django Web App</h3>
+                <p>A web application built using Django for backend functionality.</p>
+                <ul>
+                    <li>Showcases my projects and skills in using Django.</li>
+                    <li>Static content with a clean layout.</li>
+                    <li>Highlights my work in a professional manner.</li>
+                </ul>
+            </div>
+            <div class="project">
+                <h3>Point of Sale System</h3>
+                <p>A responsive POS built with HTML, CSS, and PYTHON (DJANGO) for better user experience.</p>
+                {% load static %}
+                <img src="{% static 'home/posDashboard.PNG' %}" alt="dashboard" class="pos">
+                <img src="{% static 'home/posReceipt.PNG' %}" alt="receipt" class="pos">
+            </div>
+            <div class="project">
+                <h3>Creating Text-Based Java Projects (OOP)</h3>
+                <p>I have created several text-based Java projects, ranging from simple command-line applications to systems. These projects have helped me strengthen my understanding of Java fundamentals like object-oriented programming etc. </p>
+                <p> Notable projects include calculators, Systems, and mini-games, which have enhanced my problem-solving, debugging, and coding efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Links -->
+    <section id="social-media">
+        <div class="social-media">
+            <h3>Connect with me:</h3>
+            <a href="https://github.com/switzza" target="_blank">GitHub: @switzza</a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">Email: tristanreboredo1018@gmail.com</a>
+            <a href="https://www.reddit.com/user/tristhawn/" target="_blank">Reddit: u/tristhawn</a>
+        </div>
+    </section>
+
+    <!-- Education Section-->
+    <section id="education">
+        <h2>My Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2023 - Present</h3>
+                    <p>BS Information Technology at STI College, Sta. Maria</p>
+                    <p>(Tertiary)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2021 - 2023</h3>
+                    <p>Immaculate Conception Polytechnic (Senior HighSchool) - STEM Strand</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2016 - 2021</h3>
+                    <p>Sta.Cruz HighSchool / Pulong Buhangin National HighSchool</p>
+                    <p>(High School Diploma)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2010 - 2016</h3>
+                    <p>(Primary Education (Elementary))</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="send-message" class="send-message">
+        <h2>Send a Message</h2>
+        <div class="message">
+            <p>If you would like to talk with me or have any questions, feel free to reach out!</p>
+            <p>Please feel free to send me a <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank"> message</a>.</p>
+        </div>
+    </section>
+
+    <!-- Personal Details Section -->
+    <section id="details">
+        <h2>Personal Details</h2>
+        <h1>Birthdate: </h1><p> 18 October, 2004</p>
+        <h1>Gender: </h1><p> Male</p>
+        <h1>Nationality: </h1><p> Filipino</p>
+        <h1>Height: </h1><p> 187cm (6ft 1)</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank you for visiting my portfolio!</p>
+        <p>Developed by Tristan Reboredo -  BT304</p>
+    </footer>
+
+</body>
+</html>
