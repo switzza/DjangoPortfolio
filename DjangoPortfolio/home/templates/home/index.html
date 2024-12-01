@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio - Reboredo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+  
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+
+        
+        header {
+            background-color: #1a2d46;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            header h1 {
+                font-size: 2.8rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+        nav {
+            background-color: #1a2d46;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                text-align: center;
+            }
+
+                nav ul li {
+                    display: inline;
+                    margin: 0 25px;
+                }
+
+                    nav ul li a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 400;
+                    }
+
+                        nav ul li a:hover {
+                            text-decoration: underline;
+                            color: #e3d74d; /* Gold accent */
+                        }
+
+       
+        section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+            section h2 {
+                text-align: center;
+                font-size: 2.2rem;
+                color: #2c3e50;
+                font-weight: 600;
+            }
+
+        .my-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            border: 6px solid #1a2d46;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            display: block;
+            margin: 20px auto;
+        }
+
+        .Intro {
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-top: 20px;
+            color: #4b4b4b;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            border: 2px solid #1a2d46;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .project:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .project h3 {
+                color: #2c3e50;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+            .project p {
+                font-size: 1rem;
+                color: #7f8c8d;
+            }
+
+        .social-media {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .social-media a {
+                color: #333;
+                font-size: 1.5rem;
+                margin: 0 18px;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .social-media a:hover {
+                    color: #e3d74d; /* Gold accent */
+                }
+
+        footer {
+            background-color: #1a2d46;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul li {
+                margin: 0 12px;
+            }
+
+            .my-image {
+                max-width: 200px;
+            }
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                max-width: 600px;
+                padding: 12px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                font-size: 1rem;
+                color: #333;
+            }
+
+            .contact-form button {
+                padding: 12px 25px;
+                background-color: #1a2d46;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 1.2rem;
+            }
+
+                .contact-form button:hover {
+                    background-color: #e3d74d; /* Gold accent */
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tristan Reboredo's Portfolio</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#send-message">Message me!</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>Know More About Me</h2>
+        {% load static %}
+        <img src="{% static 'home/myimage.jpg' %}" alt="My Image" class="my-image">
+        <p class="Intro">
+            I am a second-year BSIT student at STI College, Sta. Maria.<br />
+            A hardworking and passionate individual, eager to grow and learn through new challenges and responsibilities.<br />
+            I strive to improve my skills and knowledge in field of Programming and Technology.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <h3>HTML/CSS Website</h3>
+                <p>A simple website I built using HTML and CSS.</p>
+            </div>
+            <div class="project">
+                <h3>Django Web App</h3>
+                <p>A web application built using Django for backend functionality.</p>
+            </div>
+            <div class="project">
+                <h3>Responsive Web Design</h3>
+                <p>A responsive site built with HTML, CSS, and PYTHON (DJANGO) for better user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <h3>Connect with me:</h3>
+        <a href="https://github.com/switzza" target="_blank">GitHub: @switzza</a> 
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">Email: tristanreboredo1018@gmail.com</a>
+        <a href="https://www.reddit.com/user/tristhawn/" target="_blank">Reddit: u/tristhawn</a>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="send-message" class="send-message">
+        <h2>Send a Message</h2>
+        <div class="message">
+            <p>If you would like to talk with me or have any questions, feel free to reach out!</p>
+            <p>Please feel free to send me an <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank"> email</a>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank you for visiting my portfolio!</p>
+    </footer>
+
+</body>
+</html>
